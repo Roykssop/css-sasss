@@ -1,0 +1,57 @@
+.btn{
+    &:link,
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block; /* Convertimos en bloque el link */
+        border-radius: 10rem;
+        transition: all .2s; /* All significa todas las propiedades van a poder ser animadas */
+        position:relative; /* para el efecto de boton mas grande que usa pos absolute */
+        font-size: 1.6rem;
+    }
+    
+    &:hover{
+        transform: translateY(-3px); /* Trasladamos sobre y 3 px hacia arriba */
+        box-shadow: 0 1rem 2rem rgba($color-black,.2); /* Sombra, params : offset x, offset y, blurry, color sombra */
+
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6); /* Cuadno estamos en el pseudoelemento copia agrandamos su tamaño 1.5 veces */
+            opacity:0;
+        }
+    }
+    
+    &:active{
+        transform: translateY(1px); /* Trasladamos sobre y 1 px hacia abajo */
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2); /* Sombra, params : offset x, offset y, blurry, color sombra */
+    }
+    
+    
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after{
+            background-color: $color-white;
+            color: $color-grey-dark;
+        }
+    }
+    
+    &::after{ /* Usamos para poner un boton ficticio detras y hacer el efecto */
+        content: "";
+        height: 100%; /* Este boton ocupa el 100% del tamaño de .btn */
+        width: 100%; /* Este boton ocupa el 100% del ancho de .btn */
+        display: inline-block; /* Convertimos en bloque el link */
+        border-radius: 10rem;
+        z-index: -1;
+        position:absolute;
+        top:0;
+        left:0;
+        transition: all .4s; /* Seteamos el estado incial del boton para la animacion del scale */
+    }
+        
+    &--animated{
+        animation: moveInBottom .5s ease-out;
+        animation-fill-mode: backwards; /* Esto hace que las prop de keyframes se apliquen antes de la visualiz del btn */
+    }
+}

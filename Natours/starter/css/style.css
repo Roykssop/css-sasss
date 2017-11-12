@@ -1,185 +1,165 @@
-/*
-COLORS:
+@charset "UTF-8";
+/* Animacion usando keyframes
+Establecemos los porcentajes */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-10rem);
+    /* traslado 100 px en el eje x hacia la izq */ }
+  80% {
+    transform: translate(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    /* Vuelvo a la posicion inicial */ } }
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translate(10rem); }
+  80% {
+    transform: translate(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
-*/
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 *,
 *::after,
 *::before {
-    margin:0;
-    padding:0;
-    box-sizing: inherit;    
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
 
-html{
-    font-size: 62.5%;   /* 16/10 = 0.625 Al usar medidas relativas  es facil cambiar todos los tamaños */  
-}
+html {
+  font-size: 62.5%;
+  /* 16/10 = 0.625 Al usar medidas relativas  es facil cambiar todos los tamaños */ }
 
-body{
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    /*font-size: 16px;*/ 
-    line-height: 1.7; /* Especifica que el alto de linea es 1,7 veces mayor al predefinido*/
-    color: #777;
-    padding:30px; /* Borde blanco de página */
-    box-sizing: border-box;
-}
+body {
+  box-sizing: border-box; }
 
-.header{
-    height: 95vh; /* Significa el 95% del viewport */
-    background-image: linear-gradient(to right bottom ,rgba(126, 213, 111, 0.808), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); /* usamos imagen de fondo */
-    background-size: cover; /* Escala la imagen para que fix bien */
-    background-position: top; /* Si se escala la imagen no lo hace deste top*/
-    clip-path: polygon(0 0 , 100% 0, 100% 75vh, 0 100%); /* Le damos forma poligono al header */
-    position:relative;
-}
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  /* Especifica que el alto de linea es 1,7 veces mayor al predefinido*/
+  color: #777;
+  padding: 30px;
+  /* Borde blanco de página */ }
 
-
-.header__logo-box{
-    position: absolute;
-    left: 4rem;
-    top: 4rem;
-}
-
-.header__logo{
-    height: 3.5rem;
-}
-
-.heading-primary{
-    text-transform: uppercase;
-    color: #FFF;
-    margin-bottom: 6rem; /* margen para distanciamiento de boton */
-}
-
-.heading-primary--main{
-    display:block;
-    font-size:6rem;
-    font-weight: 400;
-    letter-spacing:3.5rem;
-    animation-name: moveInLeft; /* Acá va el nombre de la keyframe animation */
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
-}
-
-.heading-primary--sub{
+.heading-primary {
+  text-transform: uppercase;
+  color: #FFF;
+  margin-bottom: 6rem;
+  /* margen para distanciamiento de boton */ }
+  .heading-primary--main {
     display: block;
-    font-size:2rem;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    /* Acá va el nombre de la keyframe animation */
+    animation-duration: 2s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.75rem;
     animation: moveInRight 2s ease-out;
     /* animation-name: moveInRight;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;*/
-}
+        animation-duration: 2s;
+        animation-timing-function: ease-out;*/ }
 
-.header__text-box{
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  /* Convertimos en bloque el link */
+  border-radius: 10rem;
+  transition: all .2s;
+  /* All significa todas las propiedades van a poder ser animadas */
+  position: relative;
+  /* para el efecto de boton mas grande que usa pos absolute */
+  font-size: 1.6rem; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* Trasladamos sobre y 3 px hacia arriba */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  /* Sombra, params : offset x, offset y, blurry, color sombra */ }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    /* Cuadno estamos en el pseudoelemento copia agrandamos su tamaño 1.5 veces */
+    opacity: 0; }
+
+.btn:active {
+  transform: translateY(1px);
+  /* Trasladamos sobre y 1 px hacia abajo */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  /* Sombra, params : offset x, offset y, blurry, color sombra */ }
+
+.btn--white {
+  background-color: #FFF;
+  color: #777; }
+  .btn--white::after {
+    background-color: #FFF;
+    color: #777; }
+
+.btn::after {
+  /* Usamos para poner un boton ficticio detras y hacer el efecto */
+  content: "";
+  height: 100%;
+  /* Este boton ocupa el 100% del tamaño de .btn */
+  width: 100%;
+  /* Este boton ocupa el 100% del ancho de .btn */
+  display: inline-block;
+  /* Convertimos en bloque el link */
+  border-radius: 10rem;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .4s;
+  /* Seteamos el estado incial del boton para la animacion del scale */ }
+
+.btn--animated {
+  animation: moveInBottom .5s ease-out;
+  animation-fill-mode: backwards;
+  /* Esto hace que las prop de keyframes se apliquen antes de la visualiz del btn */ }
+
+.header {
+  height: 95vh;
+  /* Significa el 95% del viewport */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* usamos imagen de fondo */
+  background-size: cover;
+  /* Escala la imagen para que fix bien */
+  background-position: top;
+  /* Si se escala la imagen no lo hace deste top*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Le damos forma poligono al header */
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    left: 4rem;
+    top: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
     position: absolute;
     top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%); /* Co esto trasladamos el div sobre si mismo un -50% a la izq y -50% hacia top */
-    text-align: center; /* centramos el boton */
-}
-
-.btn:link,
-.btn:visited{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block; /* Convertimos en bloque el link */
-    border-radius: 10rem;
-    transition: all .2s; /* All significa todas las propiedades van a poder ser animadas */
-    position:relative; /* para el efecto de boton mas grande que usa pos absolute */
-    font-size: 1.6rem;
-}
-
-.btn:hover{
-    transform: translateY(-3px); /* Trasladamos sobre y 3 px hacia arriba */
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); /* Sombra, params : offset x, offset y, blurry, color sombra */
-}
-
-.btn:active{
-    transform: translateY(1px); /* Trasladamos sobre y 1 px hacia abajo */
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); /* Sombra, params : offset x, offset y, blurry, color sombra */
-}
-
-
-.btn--white{
-    background-color: #FFF;
-    color: #777;
-}
-
-.btn::after{ /* Usamos para poner un boton ficticio detras y hacer el efecto */
-    content: "";
-    height: 100%; /* Este boton ocupa el 100% del tamaño de .btn */
-    width: 100%; /* Este boton ocupa el 100% del ancho de .btn */
-    display: inline-block; /* Convertimos en bloque el link */
-    border-radius: 10rem;
-    z-index: -1;
-    position:absolute;
-    top:0;
-    left:0;
-    transition: all .4s; /* Seteamos el estado incial del boton para la animacion del scale */
-}
-
-.btn--white::after{
-    background-color: #FFF;
-    color: #777;
-}
-
-.btn:hover::after{
-    transform: scaleX(1.4) scaleY(1.6); /* Cuadno estamos en el pseudoelemento copia agrandamos su tamaño 1.5 veces */
-    opacity:0;
-}
-
-.btn--animated{
-    animation: moveInBottom .5s ease-out;
-    animation-fill-mode: backwards; /* Esto hace que las prop de keyframes se apliquen antes de la visualiz del btn */
-}
-
-
-
-
-/* Animacion usando keyframes
-Establecemos los porcentajes */
-@keyframes moveInLeft {
-    0%{
-        opacity: 0;
-        transform: translate(-10rem); /* traslado 100 px en el eje x hacia la izq */
-    }
-    80%{
-        transform: translate(1rem);
-    }
-    100%{
-        opacity:1;
-        transform: translate(0); /* Vuelvo a la posicion inicial */
-    }
-}
-
-@keyframes moveInRight {
-    0%{
-        opacity: 0;
-        transform: translate(10rem);
-    }
-    80%{
-        transform: translate(-1rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInBottom {
-    0%{
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-}
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Co esto trasladamos el div sobre si mismo un -50% a la izq y -50% hacia top */
+    text-align: center;
+    /* centramos el boton */ }

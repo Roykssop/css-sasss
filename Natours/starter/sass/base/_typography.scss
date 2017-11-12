@@ -1,0 +1,36 @@
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    /*font-size: 16px;*/ 
+    line-height: 1.7; /* Especifica que el alto de linea es 1,7 veces mayor al predefinido*/
+    color: $color-grey-dark;
+    padding:30px; /* Borde blanco de página */
+}
+
+
+.heading-primary{
+    text-transform: uppercase;
+    color: $color-white;
+    margin-bottom: 6rem; /* margen para distanciamiento de boton */
+
+    &--main{
+        display:block;
+        font-size:6rem;
+        font-weight: 400;
+        letter-spacing:3.5rem;
+        animation-name: moveInLeft; /* Acá va el nombre de la keyframe animation */
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+    }
+
+    &--sub{
+        display: block;
+        font-size:2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 2s ease-out;
+        /* animation-name: moveInRight;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;*/
+    }
+}

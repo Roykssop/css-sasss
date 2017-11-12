@@ -1,0 +1,26 @@
+.header{
+    height: 95vh; /* Significa el 95% del viewport */
+    background-image: linear-gradient(to right bottom, rgba($color-primary-ligth, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg); /* usamos imagen de fondo */
+    background-size: cover; /* Escala la imagen para que fix bien */
+    background-position: top; /* Si se escala la imagen no lo hace deste top*/
+    clip-path: polygon(0 0 , 100% 0, 100% 75vh, 0 100%); /* Le damos forma poligono al header */
+    position:relative;
+
+    &__logo-box{
+        position: absolute;
+        left: 4rem;
+        top: 4rem;
+    }
+
+    &__logo{
+        height: 3.5rem;
+    }
+    
+    &__text-box{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%); /* Co esto trasladamos el div sobre si mismo un -50% a la izq y -50% hacia top */
+        text-align: center; /* centramos el boton */
+    }
+}

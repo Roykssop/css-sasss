@@ -1,0 +1,40 @@
+/* Animacion usando keyframes
+Establecemos los porcentajes */
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translate(-10rem); /* traslado 100 px en el eje x hacia la izq */
+    }
+    80%{
+        transform: translate(1rem);
+    }
+    100%{
+        opacity:1;
+        transform: translate(0); /* Vuelvo a la posicion inicial */
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translate(10rem);
+    }
+    80%{
+        transform: translate(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
