@@ -16,3 +16,9 @@
         transform: skewY(7deg); /* Hacemos que todos los hijos corrijan el skewY a 0 para no estar en diagonal */
     }
 }
+
+.section-tours{
+    padding: 25rem 0 50rem 0;
+    margin-top: -10rem; /* Para que no quede el borde blanco subimos el contenido */    
+
+}

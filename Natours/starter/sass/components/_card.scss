@@ -1,0 +1,17 @@
+.card{
+    perspective: 150rem; /* Es una propiedad para manejar la perspectiva, recibe valor alto, no funciona en todos los browsers */
+    -moz-perspective: 150rem;
+    backface-visibility: hidden;
+
+    &__side{
+        background-color: $color-primary;
+        height: 50rem;
+        transition: all 1s ease; 
+        font-size: 2rem;
+        color: $color-white;  
+    }
+
+    &:hover &__side{
+        transform: rotateY(180deg); /* Rota en el eje de Y, nos sirve para la carta */
+    }
+}
