@@ -251,15 +251,35 @@ body {
   perspective: 150rem;
   /* Es una propiedad para manejar la perspectiva, recibe valor alto, no funciona en todos los browsers */
   -moz-perspective: 150rem;
-  backface-visibility: hidden; }
+  position: relative;
+  height: 50rem;
+  /* Al ser sacado del flow natural por el position absolute de __side, */
+  /* tenemos que setear el alto a card también */ }
   .card__side {
-    background-color: #55c57a;
     height: 50rem;
     transition: all 1s ease;
     font-size: 2rem;
-    color: #FFF; }
-  .card:hover .card__side {
-    transform: rotateY(180deg);
+    color: #FFF;
+    position: absolute;
+    /* hacemos que el front/back de la tarjeta esten solapados*/
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    /* Esconde la parte de atrás del elemento */
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4); }
+    .card__side--front {
+      background-color: #FFF; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg);
+    /* Rota en el eje de Y -180 grados, nos sirve para la carta rota naturalmente */ }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg);
     /* Rota en el eje de Y, nos sirve para la carta */ }
 
 .header {
