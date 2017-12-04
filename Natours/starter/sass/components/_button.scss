@@ -36,6 +36,15 @@
             color: $color-grey-dark;
         }
     }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }    
     
     &::after{ /* Usamos para poner un boton ficticio detras y hacer el efecto */
         content: "";

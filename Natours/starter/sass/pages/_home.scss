@@ -6,7 +6,7 @@
 
 .section-features{
     padding: 20rem 0;
-    background-image: linear-gradient(to right bottom, rgba($color-primary-ligth, 0.8), rgba($color-primary-dark, 0.8)), url(../img/nat-4.jpg); /* usamos imagen de fondo */
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/nat-4.jpg); /* usamos imagen de fondo */
     background-size: cover; /* Escala la imagen para que fix bien */
     background-position: top; /* Si se escala la imagen no lo hace deste top*/ 
     transform: skewY(-7deg); /* ponemos en diagonal el backgrouned */
