@@ -353,12 +353,38 @@ body {
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 3px;
-  padding: 6rem; }
+  padding: 6rem;
+  font-size: 1.6rem;
+  padding-left: 9rem;
+  transform: skewX(-12deg); }
   .story__shape {
     height: 15rem;
     width: 15rem;
     background-color: orangered;
-    float: left; }
+    float: left;
+    webkit-shape-outside: circle(50% at 50% 50%);
+    /* sirve para estilar el margen circular */
+    shape-outside: circle(50% at 50% 50%);
+    /* El primer 50% es el radio al 50% de alto y 50% de ancho  */
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    /* Corremos a la izq el circulo y le aplicamos skewx */
+    position: relative; }
+  .story__img {
+    height: 100%;
+    /* Altura de imagen de viaje */ }
+  .story__text {
+    transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center; }
 
 .header {
   height: 95vh;
