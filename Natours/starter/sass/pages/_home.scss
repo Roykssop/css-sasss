@@ -27,3 +27,17 @@
     padding:15rem 0;    
     background-color: $color-grey-light-1;    
 }
+
+.section-book{
+    padding:15rem 0;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+}
+
+.book{
+    height: 50rem;
+
+    background-image: url(../img/nat-10.jpg);
+    background-size: 100%; /* Es lo mismo que cover, hace la imagen al 100% */    
+    border-radius: 3px;
+    box-shadow: 0 1rem 4rem rgba($color-black,.2); 
+}
