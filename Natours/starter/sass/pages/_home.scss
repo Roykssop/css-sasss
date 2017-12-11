@@ -36,8 +36,18 @@
 .book{
     height: 50rem;
 
-    background-image: url(../img/nat-10.jpg);
+    background-image: linear-gradient(105deg, /* Especificamos el angulo de la gradiente en grados */
+                                    rgba($color-white,.8) 0%, /* Primer color blanco que aparece al 0% */ 
+                                    rgba($color-white,.8) 50%, /* Repetimos blanco al 50% asi la interpolacion de colores es mas brusca */
+                                    transparent 50%),
+                                    url(../img/nat-10.jpg);
     background-size: 100%; /* Es lo mismo que cover, hace la imagen al 100% */    
     border-radius: 3px;
     box-shadow: 0 1rem 4rem rgba($color-black,.2); 
+
+    &__form{
+        width:50%;
+        padding: 6rem;
+    }
+
 }

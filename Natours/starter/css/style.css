@@ -404,6 +404,13 @@ body {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(80%); }
 
+.form__input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none; }
+
 .header {
   height: 95vh;
   /* Significa el 95% del viewport */
@@ -495,8 +502,11 @@ body {
 
 .book {
   height: 50rem;
-  background-image: url(../img/nat-10.jpg);
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: 100%;
   /* Es lo mismo que cover, hace la imagen al 100% */
   border-radius: 3px;
   box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2); }
+  .book__form {
+    width: 50%;
+    padding: 6rem; }
