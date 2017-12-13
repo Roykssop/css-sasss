@@ -404,12 +404,47 @@ body {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(80%); }
 
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
 .form__input {
   font-size: 1.5rem;
+  font-family: inherit;
+  color: inherit;
   padding: 1.5rem 2rem;
   border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.5);
-  border: none; }
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+  transition: all .3s;
+  /* Transicion del foco del input */ }
+  .form__input:focus {
+    /* Se hace foco en el input */
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #55c57a; }
+    .form__input:focus:invalid {
+      border-bottom: 3px solid #ff7730;
+      /* cuando es invalido el input se muestra otro estilo */ }
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+
+.form__label {
+  /* Estilos al label */
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s; }
+
+.form__input:placeholder-shown + .form__label {
+  /* el orden es importante para estos elementos siblings , es segun como aparecen en el html */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
 
 .header {
   height: 95vh;
