@@ -1,90 +1,102 @@
-.btn{
+.btn {
+    &,
+    /* para que tods los que llevan clase .btn l apliquen */
     &:link,
-    &:visited{
+    &:visited {
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
-        display: inline-block; /* Convertimos en bloque el link */
+        display: inline-block;
+        /* Convertimos en bloque el link */
         border-radius: 10rem;
-        transition: all .2s; /* All significa todas las propiedades van a poder ser animadas */
-        position:relative; /* para el efecto de boton mas grande que usa pos absolute */
+        transition: all .2s;
+        /* All significa todas las propiedades van a poder ser animadas */
+        position: relative;
+        /* para el efecto de boton mas grande que usa pos absolute */
         font-size: $default-font-size;
+        border: none;
+        cursor: pointer;
     }
-    
-    &:hover{
-        transform: translateY(-3px); /* Trasladamos sobre y 3 px hacia arriba */
-        box-shadow: 0 1rem 2rem rgba($color-black,.2); /* Sombra, params : offset x, offset y, blurry, color sombra */
-
-        &::after{
-            transform: scaleX(1.4) scaleY(1.6); /* Cuadno estamos en el pseudoelemento copia agrandamos su tamaño 1.5 veces */
-            opacity:0;
+    &:hover {
+        transform: translateY(-3px);
+        /* Trasladamos sobre y 3 px hacia arriba */
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        /* Sombra, params : offset x, offset y, blurry, color sombra */
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            /* Cuadno estamos en el pseudoelemento copia agrandamos su tamaño 1.5 veces */
+            opacity: 0;
         }
     }
-    
-    &:active{
-        transform: translateY(1px); /* Trasladamos sobre y 1 px hacia abajo */
-        box-shadow: 0 .5rem 1rem rgba($color-black,.2); /* Sombra, params : offset x, offset y, blurry, color sombra */
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(1px);
+        /* Trasladamos sobre y 1 px hacia abajo */
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+        /* Sombra, params : offset x, offset y, blurry, color sombra */
     }
-    
-    
-    &--white{
+    &--white {
         background-color: $color-white;
         color: $color-grey-dark;
-
-        &::after{
+        &::after {
             background-color: $color-white;
             color: $color-grey-dark;
         }
     }
-
     &--green {
         background-color: $color-primary;
         color: $color-white;
-
         &::after {
             background-color: $color-primary;
         }
-    }    
-    
-    &::after{ /* Usamos para poner un boton ficticio detras y hacer el efecto */
+    }
+    &::after {
+        /* Usamos para poner un boton ficticio detras y hacer el efecto */
         content: "";
-        height: 100%; /* Este boton ocupa el 100% del tamaño de .btn */
-        width: 100%; /* Este boton ocupa el 100% del ancho de .btn */
-        display: inline-block; /* Convertimos en bloque el link */
+        height: 100%;
+        /* Este boton ocupa el 100% del tamaño de .btn */
+        width: 100%;
+        /* Este boton ocupa el 100% del ancho de .btn */
+        display: inline-block;
+        /* Convertimos en bloque el link */
         border-radius: 10rem;
         z-index: -1;
-        position:absolute;
-        top:0;
-        left:0;
-        transition: all .4s; /* Seteamos el estado incial del boton para la animacion del scale */
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .4s;
+        /* Seteamos el estado incial del boton para la animacion del scale */
     }
-        
-    &--animated{
+    &--animated {
         animation: moveInBottom .5s ease-out;
-        animation-fill-mode: backwards; /* Esto hace que las prop de keyframes se apliquen antes de la visualiz del btn */
+        animation-fill-mode: backwards;
+        /* Esto hace que las prop de keyframes se apliquen antes de la visualiz del btn */
     }
 }
 
-.btn-text{
+.btn-text {
     &:link,
-    &:visited{
-        font-size:$default-font-size;
+    &:visited {
+        font-size: $default-font-size;
         color: $color-primary;
-        display:inline-block;
+        display: inline-block;
         text-decoration: none;
         border-bottom: 1px solid $color-primary;
         padding: 3px;
     }
-
-    &:hover{
+    &:hover {
         background-color: $color-primary;
         color: $color-white;
-        box-shadow: 0 1rem 2rem($color-black,.15); /* Le ponemos sombra */
-        transform:translate(-2px); /* Trasladamos hacia abajo 2 px */
+        box-shadow: 0 1rem 2rem($color-black, .15);
+        /* Le ponemos sombra */
+        transform: translate(-2px);
+        /* Trasladamos hacia abajo 2 px */
     }
-
-    &:active{
-        box-shadow: 0 1rem 2rem($color-black,.15); /* Le ponemos sombra */
-        transform:translate(-2px); /* Trasladamos hacia abajo 2 px */
+    &:active {
+        box-shadow: 0 1rem 2rem($color-black, .15);
+        /* Le ponemos sombra */
+        transform: translate(-2px);
+        /* Trasladamos hacia abajo 2 px */
     }
 }
