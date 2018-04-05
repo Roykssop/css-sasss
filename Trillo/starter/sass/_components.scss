@@ -1,0 +1,110 @@
+///////////////////////////////////////////
+/// LOGO
+.logo{
+    height: 3.25rem;
+    margin-left: 3rem;
+}
+
+///////////////////////////////////////////
+/// SEARCH
+.search {
+    flex: 0 0 40%; /* ocupa 40% de header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__input {
+        font-family: inherit; /* El elemento input no hereda la fuente por eso se especifica */
+        font-size: inherit;
+        color: inherit;
+        border: none;
+        background-color: var(--color-grey-light-2);
+        border-radius: 100px;
+        width: 90%;   
+        padding: 0.7rem 2rem;
+        transition: all .2s;
+        margin-right: -3.25rem; /* Hacemos que el boton de busqueda quede dentro del input y no haga salto de linea */
+        
+        &:focus{
+            outline: none;
+            background-color: var(--color-grey-light-3);
+            width: 100%;
+        }
+
+        &::-webkit-input-placeholder{
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+
+    &__input:focus + &__button{
+        background-color: var(--color-grey-light-3);
+    }
+
+    &__button{
+        height: 2rem;
+        border:none;
+        background-color: var(--color-grey-light-2);
+
+        &:focus{
+            outline: none;
+        }
+
+        &:active{
+            transform: translateY(-2px);
+        }
+    }
+
+    &__icon{
+        height: 2rem;
+        width: 2rem;
+        fill: var(--color-grey-dark-3); /* Pintamos el svg */
+    }
+}
+
+///////////////////////////////////////////
+/// USER NAVIGATION
+.user-nav{
+    display: flex;
+    align-self: stretch; /* Hacemos que user-nav ocupe todo el alto */
+    align-items: center;
+
+    & > * { /* Seleccionamos los hijos de usernav */
+        padding: 0 2rem;
+        cursor:pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        &:hover{
+            background-color: var(--color-grey-light-2);
+        }
+    }
+
+    &__icon-box {
+
+    }
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+        fill: var(--color-grey-dark-2);         
+    }
+
+    &__notification {
+
+    }
+
+    &__user{
+
+    }
+
+    &__user-photo {
+        height: 3.75rem;
+        border-radius: 50%; /* Imagen redondeada */
+    }
+
+    &__user-name {
+
+    }
+}
