@@ -3,7 +3,7 @@
     margin: 8rem auto;
     background-color: var(--color-grey-light-1);
     box-shadow: var(--shadow-dark); /* usamos var css para grabar las prop del shadow */
-    height: 50rem;
+    min-height: 50rem; /* Completa el fondo hasta el final */
 }
 
 .header{
@@ -23,9 +23,16 @@
 .sidebar{
     background-color: var(--color-grey-dark-1);
     flex: 0 0 18%; /* grow = 0 no queremos que el el crezca si hay espacion, ni que se reduzca */
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .hotel-view{
     background-color:firebrick;
     flex: 1; /* ocupa espacio restante 72% */
+
+    // TEST
+    height: 80rem;
+
 }

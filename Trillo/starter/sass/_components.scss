@@ -82,7 +82,7 @@
     }
 
     &__icon-box {
-
+        position: relative;
     }
 
     &__icon {
@@ -92,6 +92,17 @@
     }
 
     &__notification {
+        position: absolute;
+        top:1.5rem;
+        right: 1.1rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        background-color: var(--color-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
     }
 
@@ -102,9 +113,73 @@
     &__user-photo {
         height: 3.75rem;
         border-radius: 50%; /* Imagen redondeada */
+        margin-right: 1rem;
     }
 
     &__user-name {
 
     }
+}
+
+///////////////////////////////////////////
+/// SIDE NAVIGATION
+.side-nav{
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
+    &__item{
+        position: relative;
+        &:not(:last-child){
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__item::before { /* Elemento que inicia animacion sobre el hover */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        transform: scaleY(0); /* Estado inicial */
+        /* transform-origin: bottom; Puede setear de donde empieza la transformación */ 
+        transition: transform .2s, 
+                    width .4s cubic-bezier(1,0,0,1) .2s,
+                    background-color .1s; /* Se puede setear distintas configuraciones para la animación de cada propieda en especifico */  
+    }
+
+    &__item:hover::before,
+    &__item--active::before{
+        transform: scaleY(1); /* Se agranda el pseudoelemento befor al hacer hover en item */
+        width:100%;
+    }
+
+    &__link:link,
+    &__link:visited{
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display:block;
+        padding: 1.5rem 3rem;
+        display:flex;
+        align-items: center;
+        position: relative; /* El z-index solo funciona si hay una posición especificada */
+        z-index: 10;
+    }
+
+    &__icon{
+        width:1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill:currentColor;
+    }
+}
+
+.legal{
+    font-size: 1.2rem;
+    color: var(--color-grey-light-4);
+    padding:2.5rem;
+    text-align: center;
 }

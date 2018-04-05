@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 COLORS
 
@@ -43,14 +44,15 @@ html {
   font-size: 62.5%; }
 
 body {
-  background-color: #eb2f64;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  color: var(--color-grey-dark-2);
   background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
+  /* Completa el fondo hasta el final */
   color: var(--color-grey-dark-2); }
 
 .logo {
@@ -113,14 +115,78 @@ body {
     align-items: center; }
     .user-nav > *:hover {
       background-color: var(--color-grey-light-2); }
+  .user-nav__icon-box {
+    position: relative; }
   .user-nav__icon {
     height: 2.25rem;
     width: 2.25rem;
     fill: var(--color-grey-dark-2); }
+  .user-nav__notification {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
-    /* Imagen redondeada */ }
+    /* Imagen redondeada */
+    margin-right: 1rem; }
+
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem; }
+  .side-nav__item {
+    position: relative; }
+    .side-nav__item:not(:last-child) {
+      margin-bottom: .5rem; }
+  .side-nav__item::before {
+    /* Elemento que inicia animacion sobre el hover */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    /* Estado inicial */
+    /* transform-origin: bottom; Puede setear de donde empieza la transformación */
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+    /* Se puede setear distintas configuraciones para la animación de cada propieda en especifico */ }
+  .side-nav__item:hover::before, .side-nav__item--active::before {
+    transform: scaleY(1);
+    /* Se agranda el pseudoelemento befor al hacer hover en item */
+    width: 100%; }
+  .side-nav__link:link, .side-nav__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* El z-index solo funciona si hay una posición especificada */
+    z-index: 10; }
+  .side-nav__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; }
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  padding: 2.5rem;
+  text-align: center; }
 
 .container {
   max-width: 120rem;
@@ -129,7 +195,8 @@ body {
   background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-dark);
   /* usamos var css para grabar las prop del shadow */
-  height: 50rem; }
+  min-height: 50rem;
+  /* Completa el fondo hasta el final */ }
 
 .header {
   font-size: 1.4rem;
@@ -146,9 +213,13 @@ body {
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%;
-  /* grow = 0 no queremos que el el crezca si hay espacion, ni que se reduzca */ }
+  /* grow = 0 no queremos que el el crezca si hay espacion, ni que se reduzca */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .hotel-view {
   background-color: firebrick;
   flex: 1;
-  /* ocupa espacio restante 72% */ }
+  /* ocupa espacio restante 72% */
+  height: 80rem; }
